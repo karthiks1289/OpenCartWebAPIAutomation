@@ -31,7 +31,7 @@ test('verify forget password link presence', async()=>{
     expect(await loginPage.isForgottenPasswordExist()).toBeTruthy();
 })
 
-test("user is able to login or not", async({page})=>{
+test("App user credentials", async({page})=>{
     await loginPage.doLogin(process.env.userID, process.env.passWord);
     let testName = "User Account Page"
     await loginPage.takeScreenshot(testName)
