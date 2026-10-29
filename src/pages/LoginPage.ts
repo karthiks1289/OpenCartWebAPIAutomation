@@ -40,7 +40,7 @@ export class LoginPage extends BasePage {
         //Partial URL. Base URL we maintain in playwright.config.ts under use object.
         //baseURL
         console.log(` Navigating to ${process.env.BASE_URL}opencart/index.php?route=account/login`);
-        await this.page.goto(`${process.env.BASE_URL}opencart/index.php?route=account/login`);
+        await this.page.goto(`${process.env.BASE_URL}opencart/index.php?route=account/login`, {waitUntil:"load",timeout:60000});
     }
 
     async getLoginPageTitle() : Promise<string>{
