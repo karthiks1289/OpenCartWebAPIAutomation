@@ -25,11 +25,13 @@ export default defineConfig({
     ...(process.env.CI ? { workers: 1 } : {}),
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', {outputFolder:"reports/html-report", open:"never"}],['list'],["allure-playwright", {outputFolder:"allure-results",suiteTitle:true}]],
+  reporter: process.env.CI ? 
+  [['html', {outputFolder:"reports/html-report", open:"never"}],['list'],["allure-playwright", {outputFolder:"allure-results",suiteTitle:true}]] : 
+  [['html', {outputFolder:"reports/html-report", open:"never"}],['list'],["allure-playwright", {outputFolder:"allure-results",suiteTitle:true}]],
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless : false,
+    headless : !process.env.CI ? false : true,
     trace: 'on-first-retry',
     baseURL : 'https://naveenautomationlabs.com/'
   },

@@ -12,6 +12,7 @@ node_modules/
 /allure-results/
 /reports/
 config/.env.*
+!config/.env.example
 
 #build
 dist/
