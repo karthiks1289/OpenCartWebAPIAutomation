@@ -39,7 +39,7 @@ export class LoginPage extends BasePage {
     async goToLoginPage() : Promise<void>{
         //Partial URL. Base URL we maintain in playwright.config.ts under use object.
         //baseURL
-        await this.page.goto("opencart/index.php?route=account/login");
+        await this.page.goto(`${process.env.BASE_URL}opencart/index.php?route=account/login`);
     }
 
     async getLoginPageTitle() : Promise<string>{

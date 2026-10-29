@@ -22,7 +22,7 @@ export default defineConfig({
 
   /* Opt out of parallel tests on CI. */
   //workers: process.env.CI ? 1 : undefined,
-    ...(process.env.CI ? { workers: 1 } : {}),
+    ...(process.env.CI ? { workers: 2 } : {}),
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI ? 
@@ -34,7 +34,9 @@ export default defineConfig({
     headless : !process.env.CI ? false : true,
     trace: 'on-first-retry',
    // baseURL : 'https://naveenautomationlabs.com/'
-    baseURL: process.env.BASE_URL
+    baseURL: process.env.BASE_URL,
+    screenshot : "only-on-failure",
+    video : "retain-on-failure"
   },
 
   /* Configure projects for major browsers */
