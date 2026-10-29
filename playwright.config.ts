@@ -33,7 +33,8 @@ export default defineConfig({
   use: {
     headless : !process.env.CI ? false : true,
     trace: 'on-first-retry',
-    baseURL : 'https://naveenautomationlabs.com/'
+   // baseURL : 'https://naveenautomationlabs.com/'
+    baseURL: process.env.BASE_URL
   },
 
   /* Configure projects for major browsers */

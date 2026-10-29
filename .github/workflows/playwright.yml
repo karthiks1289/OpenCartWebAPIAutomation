@@ -6,7 +6,7 @@ on:
   # push:
     # branches: [master]
   # pull_request:
-    # branches: [master]
+    #branches: [master]
   workflow_dispatch:
     inputs:
       environment:
@@ -67,13 +67,15 @@ jobs:
         env:
           ENV: ${{ github.event.inputs.environment || 'QA' }}
           BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          userID: ${{ secrets.userID }}
+          passWord: ${{ secrets.passWord }}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
           OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
           GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          API_Token_Thinking_Tester: ${{ secrets.API_Token_Thinking_Tester }}
+          API_Thinking_Tester_Base_URL: ${{ secrets.API_Thinking_Tester_Base_URL }}
 
       - name: Upload HTML Report
         if: always()
